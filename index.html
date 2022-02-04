@@ -20,6 +20,8 @@
   <link rel="stylesheet" href="css/main.css">
 
   <meta name="theme-color" content="#fafafa">
+  <!-- Material Icon CDN -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -29,13 +31,18 @@
   <header>
     <nav>
       <h3>Aliki Ibizan Hounds</h3>
-      <ul>
-        <li>About</li>
-        <li>Emma</li>
-        <li>Upcoming Litters</li>
-        <li>Past Litters</li>
-        <li>Contact Us</li>
+      <ul class=>
+        <li><a class="menuItem" href="#">About</a></li>
+        <li><a class="menuItem" href="#">Emma</a></li>
+        <li><a class="menuItem" href="#">Upcoming Litters</a></li>
+        <li><a class="menuItem" href="#">Past Litters</a></li>
+        <li><a class="menuItem" href="#">Contact Us</a></li>
       </ul>
+      <button class="hamburger">
+        <!-- material icons https://material.io/resources/icons/ -->
+        <i class="menuIcon material-icons">menu</i>
+        <i class="closeIcon material-icons">close</i>
+      </button>
     </nav>
   </header>
   <main>
@@ -46,7 +53,27 @@
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
+  <script>
+      const menu = document.querySelector(".menu");
+      const menuItems = document.querySelectorAll(".menuItem");
+      const hamburger= document.querySelector(".hamburger");
+      const closeIcon= document.querySelector(".closeIcon");
+      const menuIcon = document.querySelector(".menuIcon");
 
+      function toggleMenu() {
+      if (menu.classList.contains("showMenu")) {
+        menu.classList.remove("showMenu");
+        closeIcon.style.display = "none";
+        menuIcon.style.display = "block";
+      } else {
+        menu.classList.add("showMenu");
+        closeIcon.style.display = "block";
+        menuIcon.style.display = "none";
+       }
+      }
+
+      hamburger.addEventListener("click", toggleMenu);
+    </script>
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
